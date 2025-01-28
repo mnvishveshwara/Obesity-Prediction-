@@ -1,2 +1,5 @@
 flask
-flask-lambda
+numpy
+pandas
+sklearn
+gunicorn
