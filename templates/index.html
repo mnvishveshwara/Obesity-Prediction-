@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obesity Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        width: 700px;
+        padding: 20px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 20px;
+        margin-bottom:20px;
+        
+      }
+
+      .form-group div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        font-weight: bold;
+        color: black;
+      }
+
+      .form-group input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-group small {
+        color: #555;
+        font-size: 0.85em;
+        margin-top: 5px;
+      }
+
+      .btn-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .result {
+        text-align: center;
+        color: black;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 align="center">Obesity Prediction</h1>
+      </div>
+      <form action="/predict" method="POST">
+        <div class="form-group">
+          <div>
+            <label>Age:</label>
+            <input type="text" name="Age" required />
+            <small>Enter your age in years</small>
+          </div>
+          <div>
+            <label>Gender:</label>
+            <input type="text" name="Gender_n" required />
+            <small>Gender: 0=Female, 1=Male</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>Height:</label>
+            <input type="text" name="Height" required />
+            <small>Height in meters</small>
+          </div>
+          <div>
+            <label>Weight:</label>
+            <input type="text" name="Weight" required />
+            <small>Weight in kilograms</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>Family History:</label>
+            <input
+              type="text"
+              name="family_history_with_overweight_n"
+              required
+            />
+            <small>Family history of overweight (0=No, 1=Yes)</small>
+          </div>
+          <div>
+            <label>FAVC:</label>
+            <input type="text" name="FAVC_n" required />
+            <small>Frequent high-calorie food consumption (0=No, 1=Yes)</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>FCVC:</label>
+            <input type="text" name="FCVC" required />
+            <small>Frequency of vegetable consumption (0-3)</small>
+          </div>
+          <div>
+            <label>NCP:</label>
+            <input type="text" name="NCP" required />
+            <small>Number of meals per day</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>CAEC:</label>
+            <input type="text" name="CAEC_n" required />
+            <small>Eating between meals (0=Never, 3=Always)</small>
+          </div>
+          <div>
+            <label>SMOKE:</label>
+            <input type="text" name="SMOKE_n" required />
+            <small>Smoking habit (0=No, 1=Yes)</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>CH2O:</label>
+            <input type="text" name="CH2O" required />
+            <small>Daily water intake in liters</small>
+          </div>
+          <div>
+            <label>SCC:</label>
+            <input type="text" name="SCC_n" required />
+            <small>Caloric consumption monitoring (0=No, 1=Yes)</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>FAF:</label>
+            <input type="text" name="FAF" required />
+            <small>Physical activity frequency (0-3)</small>
+          </div>
+          <div>
+            <label>TUE:</label>
+            <input type="text" name="TUE" required />
+            <small>Time using technology daily in hours</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div>
+            <label>CALC:</label>
+            <input type="text" name="CALC_n" required />
+            <small>Alcohol consumption frequency (0-3)</small>
+          </div>
+          <div>
+            <label>MTRANS:</label>
+            <input type="text" name="MTRANS_n" required />
+            <small>Mode of transportation (0=Walking, 1=Car, etc.)</small>
+          </div>
+        </div>
+
+        <div class="btn-container">
+          <button type="submit">Predict</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
