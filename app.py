@@ -14,7 +14,6 @@ path = "ObesityDataSet_raw_and_data_sinthetic.csv"
 data = pd.read_csv(path)
 
 # Label Encoding
-
 le = LabelEncoder()
 columns_to_encode = [
     "Gender",
@@ -100,4 +99,5 @@ def predict():
 
 
 if __name__ == "__main__":
-app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT is not set
+    app.run(host="0.0.0.0", port=port)
